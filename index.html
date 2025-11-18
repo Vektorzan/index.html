@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Kesan untuk Dosen Pensiun</title>
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #a8edea, #fed6e3);
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+        .lecturers-photos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .lecturer {
+            text-align: center;
+        }
+        .lecturer img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #ff6b6b;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .lecturer img:hover {
+            transform: scale(1.1);
+        }
+        .lecturer p {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #555;
+        }
+        .edit-names {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .edit-names input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 150px;
+        }
+        .edit-names button {
+            padding: 8px 15px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .edit-names button:hover {
+            background: #e55a5a;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #ff6b6b;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            animation: slideUp 1s ease-out;
+        }
+        .form-section h2 {
+            text-align: center;
+            color: #ff6b6b;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        button {
+            padding: 12px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: transform 0.3s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .messages {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .message-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease-out;
+        }
+        .message-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .message-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            margin-top: 40px;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="lecturers-photos">
+            <div class="lecturer">
+                <img src="https://via.placeholder.com/120" alt="Foto Dosen 1">
+                <p id="name1"></p>
+            </div>
+            <div class="lecturer">
+                <img src="https://via.placeholder.com/120" alt="Foto Dosen 2">
+                <p id="name2"></p>
+            </div>
+            <div class="lecturer">
+                <img src="https://via.placeholder.com/120" alt="Foto Dosen 3">
+                <p id="name3"></p>
+            </div>
+        </div>
+
+        <div class="edit-names">
+            <input type="text" id="inputName1" placeholder="Nama Dosen 1">
+            <input type="text" id="inputName2" placeholder="Nama Dosen 2">
+            <input type="text" id="inputName3" placeholder="Nama Dosen 3">
+            <button onclick="updateNames()">Update Nama</button>
+        </div>
+
+        <h1>Selamat Pensiun, Para Dosen!</h1>
+        <p>Berikan ucapan kesan dan pesan hangat untuk dosen tercinta yang telah menginspirasi banyak orang.</p>
+    </header>
+
+    <div class="container">
+        <section class="form-section">
+            <h2>Tambahkan Pesan Anda</h2>
+            <form id="messageForm">
+                <input type="text" id="name" placeholder="Nama Anda" required>
+                <textarea id="message" placeholder="Tulis pesan kesan Anda..." rows="4" required></textarea>
+                <input type="url" id="photo" placeholder="URL Foto (opsional)">
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </section>
+
+        <section class="messages" id="messagesContainer">
+            <div class="message-card">
+                <img src="https://via.placeholder.com/60" alt="Foto">
+                <h3>Ahmad</h3>
+                <p>Pak, terima kasih atas ilmu dan motivasi yang tak pernah padam. Anda adalah inspirasi bagi kami semua!</p>
+            </div>
+            <div class="message-card">
+                <img src="https://via.placeholder.com/60" alt="Foto">
+                <h3>Siti</h3>
+                <p>Selamat pensiun, Pak! Pengajaran Anda selalu membuat kuliah jadi menyenangkan. Semoga sehat selalu.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Dibuat dengan ❤️ untuk menghormati jasa para dosen.</p>
+    </footer>
+
+    <script>
+        function updateNames() {
+            document.getElementById('name1').textContent = document.getElementById('inputName1').value;
+            document.getElementById('name2').textContent = document.getElementById('inputName2').value;
+            document.getElementById('name3').textContent = document.getElementById('inputName3').value;
+
+            document.getElementById('inputName1').value = '';
+            document.getElementById('inputName2').value = '';
+            document.getElementById('inputName3').value = '';
+        }
+
+        const form = document.getElementById('messageForm');
+        const messagesContainer = document.getElementById('messagesContainer');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const photo = document.getElementById('photo').value || 'https://via.placeholder.com/60';
+
+            const newCard = document.createElement('div');
+            newCard.className = 'message-card';
+            newCard.innerHTML = `
+                <img src="${photo}" alt="Foto">
+                <h3>${name}</h3>
+                <p>${message}</p>
+            `;
+            
+            messagesContainer.appendChild(newCard);
+            form.reset();
+            newCard.style.animation = 'fadeInUp 1s ease-out';
+        });
+    </script>
+
+</body>
+</html>
