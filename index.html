@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ucapan Kesan untuk Dosen Pensiun</title>
-    
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -49,31 +46,6 @@
             margin-top: 10px;
             font-weight: 600;
             color: #555;
-        }
-        .edit-names {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .edit-names input {
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 150px;
-        }
-        .edit-names button {
-            padding: 8px 15px;
-            background: #ff6b6b;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .edit-names button:hover {
-            background: #e55a5a;
         }
         header h1 {
             font-size: 3em;
@@ -155,41 +127,40 @@
             background: rgba(255, 255, 255, 0.8);
             margin-top: 40px;
         }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-
 <body>
-
     <header>
         <div class="lecturers-photos">
             <div class="lecturer">
-                <img src="https://via.placeholder.com/120" alt="Foto Dosen 1">
-                <p id="name1"></p>
+                <img src="https://via.placeholder.com/120" alt="Foto Bu Ninin">
+                <p>Bu Ninin</p>
             </div>
             <div class="lecturer">
-                <img src="https://via.placeholder.com/120" alt="Foto Dosen 2">
-                <p id="name2"></p>
+                <img src="https://via.placeholder.com/120" alt="Foto Pak Adi">
+                <p>Pak Adi</p>
             </div>
             <div class="lecturer">
-                <img src="https://via.placeholder.com/120" alt="Foto Dosen 3">
-                <p id="name3"></p>
+                <img src="https://via.placeholder.com/120" alt="Foto Pak Muhammad">
+                <p>Pak Muhammad</p>
             </div>
         </div>
-
-        <div class="edit-names">
-            <input type="text" id="inputName1" placeholder="Nama Dosen 1">
-            <input type="text" id="inputName2" placeholder="Nama Dosen 2">
-            <input type="text" id="inputName3" placeholder="Nama Dosen 3">
-            <button onclick="updateNames()">Update Nama</button>
-        </div>
-
-        <h1>Selamat Pensiun, Para Dosen!</h1>
+        <h1>Dedikasi Bapak/Ibu telah menginspirasi banyak generasi</h1>
         <p>Berikan ucapan kesan dan pesan hangat untuk dosen tercinta yang telah menginspirasi banyak orang.</p>
     </header>
-
+    
     <div class="container">
         <section class="form-section">
             <h2>Tambahkan Pesan Anda</h2>
@@ -200,8 +171,9 @@
                 <button type="submit">Kirim Pesan</button>
             </form>
         </section>
-
+        
         <section class="messages" id="messagesContainer">
+            <!-- Pesan awal sebagai contoh -->
             <div class="message-card">
                 <img src="https://via.placeholder.com/60" alt="Foto">
                 <h3>Ahmad</h3>
@@ -214,32 +186,21 @@
             </div>
         </section>
     </div>
-
+    
     <footer>
-        <p>Dibuat dengan ❤️ untuk menghormati jasa para dosen.</p>
+        <p>Dibuat dengan ❤️ untuk menghormati jasa dosen kita.</p>
     </footer>
-
+    
     <script>
-        function updateNames() {
-            document.getElementById('name1').textContent = document.getElementById('inputName1').value;
-            document.getElementById('name2').textContent = document.getElementById('inputName2').value;
-            document.getElementById('name3').textContent = document.getElementById('inputName3').value;
-
-            document.getElementById('inputName1').value = '';
-            document.getElementById('inputName2').value = '';
-            document.getElementById('inputName3').value = '';
-        }
-
         const form = document.getElementById('messageForm');
         const messagesContainer = document.getElementById('messagesContainer');
-
+        
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-
             const name = document.getElementById('name').value;
             const message = document.getElementById('message').value;
             const photo = document.getElementById('photo').value || 'https://via.placeholder.com/60';
-
+            
             const newCard = document.createElement('div');
             newCard.className = 'message-card';
             newCard.innerHTML = `
@@ -247,12 +208,14 @@
                 <h3>${name}</h3>
                 <p>${message}</p>
             `;
-            
             messagesContainer.appendChild(newCard);
+            
+            // Reset form
             form.reset();
+            
+            // Animasi untuk kartu baru
             newCard.style.animation = 'fadeInUp 1s ease-out';
         });
     </script>
-
 </body>
 </html>
